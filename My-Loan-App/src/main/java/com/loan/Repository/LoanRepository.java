@@ -12,7 +12,9 @@ import com.loan.Model.User;
 
 public interface LoanRepository extends CrudRepository<Loan, UUID> {
 
-	@Query(value = "SELECT * FROM loan WHERE user_id = ?1", nativeQuery = true)
-	public List<Loan> findLoansByUser(UUID user_id);
+	//@Query(value = "SELECT * FROM loan WHERE user_id = ?1", nativeQuery = true)
+	public List<Loan> findLoansByUser(User user);
+	
+	public List<Loan> findLoansByStatus(String status);
 	
 }

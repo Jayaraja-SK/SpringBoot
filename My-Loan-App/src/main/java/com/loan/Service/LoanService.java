@@ -28,8 +28,11 @@ public class LoanService {
 		loanRepo.save(loan);
 	}
 	
-	public List<Loan> getMyLoans(UUID id) { 
-		List<Loan> result = new ArrayList<Loan>();
+	public List<Loan> getLoansByUser(UUID id) { 
+		
+		System.out.println(loanRepo.findLoansByUser(new User(id)));
+		
+		/*List<Loan> result = new ArrayList<Loan>();
 		
 		loanRepo.findAll().forEach(result::add);
 		
@@ -43,9 +46,18 @@ public class LoanService {
 			{
 				filter.add(result.get(i));
 			}
-		}
+		}*/
 		
-		return filter;
+		return loanRepo.findLoansByUser(new User(id));
+	}
+	
+
+	
+	
+	public List<Loan> getLoansByStatus(String status) { 
+		
+		
+		return loanRepo.findLoansByStatus(status);
 	}
 	
 	

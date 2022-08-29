@@ -53,7 +53,7 @@ public class UserController {
 	public List<Loan> getMyLoans(@PathVariable UUID user_id){
 		if(userService.verifyUser(user_id))
 		{
-			return loanService.getMyLoans(user_id);
+			return loanService.getLoansByUser(user_id);
 		}
 		else
 		{
